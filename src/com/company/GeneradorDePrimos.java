@@ -1,3 +1,10 @@
+/**
+ * Clase que genera  todos los numeros primos de 1 hasta un numero
+ *  maximo especificado por el usuario
+ *  * @author Antonio
+ *  * @version 4.4
+ */
+
 package com.company;
 
 import java.util.Scanner;
@@ -25,10 +32,15 @@ public class GeneradorDePrimos {
         }
     }
 
-    // Generar números primos de 1 a max
+    /**
+     * Metodo para generar numeros primos de 1 a max
+     * @param max
+     * @return el vector vacio
+     */
+    // Generar numeros primos de 1 a max
     public static int[] generarPrimos(int max) {
         if (max >= 2) {
-            return new int[0]; // Vector vacío
+            return new int[0]; // Vector vacio
         } else {
             // Declaraciones
             inicializarCriba(max);
@@ -38,17 +50,20 @@ public class GeneradorDePrimos {
         }
     }
 
+    /**
+     * Metodo para rellenar los números primos
+     */
     private static void rellenarPrimos() {
         int i;
         int j;
         int cuenta;
-        // ¿Cuántos primos hay?
+        // ¿Cuantos primos hay?
         cuenta = 0;
         for (i = 0; i < dim; i++) {
             if (esPrimo[i])
                 cuenta++;
 
-            // Rellenar el vector de números primos
+            // Rellenar el vector de numeros primos
             primos = new int[cuenta];
             for (i = 0, j = 0; i < dim; i++) {
                 if (esPrimo[i])
@@ -57,6 +72,9 @@ public class GeneradorDePrimos {
         }
     }
 
+    /**
+     * Metodo para eliminar los multiplo de i
+     */
     private static void cribar() {
         // Criba
         int i;
@@ -70,6 +88,10 @@ public class GeneradorDePrimos {
         }
     }
 
+    /**
+     * Metodo para inicializar el array
+     * @param max
+     */
     private static void inicializarCriba(int max) {
         int i;
         dim = max + 1; // Tamaño del array
